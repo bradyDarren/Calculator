@@ -19,31 +19,35 @@ calc_functions = {
     "/":divide
 }
 
+def check_number(prompt):
+    while True: 
+        try: 
+            return float(input(prompt))
+        except ValueError: 
+            print("Invlaid input. Please enter a valid number.")
 
-x = input() 
+continue_calc = True
 
-if type(x) != int: 
-    print("Please input a number!")
-else: 
-    print("none")
-
-# continue_calc = True
-
-# def calculator():
-#     number1 = input("What is the first number?: ")
+def calculator():
+    number1 = check_number("What is the first number?: ")
     
-#     while continue_calc:
-#         for symbol in calc_functions: 
-#             print(symbol)
-#         symbol_choice = input("Pick an operation: ")
-#         number2 = int(input("What's the next number?: "))
-#         result = float(calc_functions[symbol_choice](number1, number2))
-#         print(f"{number1} + {number2} = {result}")
-#         user_choice = input(f"Type 'y' to continue caculating with {result}, or type 'n' to start a new calculation: ")
-#         if user_choice == 'n':
-#             print("\n" * 40)
-#             calculator()
-#         else:
-#             number1 = result 
-#             continue
-# calculator()
+    
+    while continue_calc:
+        for symbol in calc_functions: 
+            print(symbol)
+        symbol_choice = input("Pick an operation: ")
+        if symbol_choice not in calc_functions:
+            print("Please input an appropriate operator.")
+            continue
+
+        number2 = check_number("What's the next number?: ")
+        result = float(calc_functions[symbol_choice](number1, number2))
+        print(f"{number1} {symbol_choice} {number2} = {result}")
+        user_choice = input(f"Type 'y' to continue caculating with {result}, or type 'n' to start a new calculation: ")
+        if user_choice == 'n':
+            print("\n" * 40)
+            calculator()
+        else:
+            number1 = result 
+            continue
+calculator()
