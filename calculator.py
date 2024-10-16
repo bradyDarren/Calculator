@@ -1,5 +1,6 @@
 # creation of functions designed to perform the basic functions of a calculator. 
 def add (n1, n2):
+    # if type(n1) != 
     return (n1 + n2)
 
 def subtract (n1, n2):
@@ -18,23 +19,31 @@ calc_functions = {
     "/":divide
 }
 
-continue_calc = True
 
-def calculator():
-    number1 = int(input("What is the first number?: "))
+x = input() 
+
+if type(x) != int: 
+    print("Please input a number!")
+else: 
+    print("none")
+
+# continue_calc = True
+
+# def calculator():
+#     number1 = input("What is the first number?: ")
     
-    while continue_calc:
-        for symbol in calc_functions: 
-            print(symbol)
-        symbol_choice = input("Pick an operation: ")
-        number2 = int(input("What's the next number?: "))
-        result = float(calc_functions[symbol_choice](number1,number2))
-        print(f"{number1} + {number2} = {result}")
-        user_choice = input(f"Type 'y' to continue caculating with {result}, or type 'n' to start a new calculation: ")
-        if user_choice == 'n':
-            print("\n" * 40)
-            calculator()
-        else:
-            number1 = result 
-            continue
-calculator()
+#     while continue_calc:
+#         for symbol in calc_functions: 
+#             print(symbol)
+#         symbol_choice = input("Pick an operation: ")
+#         number2 = int(input("What's the next number?: "))
+#         result = float(calc_functions[symbol_choice](number1, number2))
+#         print(f"{number1} + {number2} = {result}")
+#         user_choice = input(f"Type 'y' to continue caculating with {result}, or type 'n' to start a new calculation: ")
+#         if user_choice == 'n':
+#             print("\n" * 40)
+#             calculator()
+#         else:
+#             number1 = result 
+#             continue
+# calculator()
