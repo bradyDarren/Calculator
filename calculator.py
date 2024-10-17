@@ -49,5 +49,4 @@ def calculator():
             calculator()
         else:
             number1 = result 
-            continue
 calculator()
