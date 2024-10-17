@@ -26,12 +26,10 @@ def check_number(prompt):
         except ValueError: 
             print("Invlaid input. Please enter a valid number.")
 
-continue_calc = True
 
 def calculator():
+    continue_calc = True
     number1 = check_number("What is the first number?: ")
-    
-    
     while continue_calc:
         for symbol in calc_functions: 
             print(symbol)
@@ -39,12 +37,12 @@ def calculator():
         if symbol_choice not in calc_functions:
             print("Please input an appropriate operator.")
             continue
-
         number2 = check_number("What's the next number?: ")
         result = float(calc_functions[symbol_choice](number1, number2))
         print(f"{number1} {symbol_choice} {number2} = {result}")
         user_choice = input(f"Type 'y' to continue caculating with {result}, or type 'n' to start a new calculation: ")
         if user_choice == 'n':
+            continue_calc = False
             print("\n" * 40)
             calculator()
         else:
